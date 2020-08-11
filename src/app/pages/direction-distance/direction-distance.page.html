@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color = "primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Direction </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <form [formGroup]="directionForm">
+    <ion-item>
+      <ion-label position="floating">Source</ion-label>
+      <ion-input formControlName="source"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Destination</ion-label>
+      <ion-input formControlName="destination"></ion-input>
+    </ion-item>    
+    <div class="ion-text-center">
+      <div class="distance" *ngIf="isRidingEnd">
+        <h6> Distance:  {{ duration }} </h6>
+        <h6> Time:  {{ distance }} </h6>
+      </div>
+      <ion-button (click) = "calculateAndDisplayRoute()"  type="submit" [disabled]="directionForm.invalid">Start Riding</ion-button>
+      <ion-button [disabled] = "isStartButton" (click) = "onEndRiding()">End Riding</ion-button>
+    </div>
+
+  </form>
+
+  <div #mapElement class="map"></div>
+</ion-content>

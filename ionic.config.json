@@ -1,0 +1,7 @@
+{
+  "name": "distance calculator app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
